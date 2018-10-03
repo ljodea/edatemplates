@@ -9,3 +9,4 @@ Encoding: UTF-8
 LazyData: true
 URL: http://github.com/ljodea/edatemplates
 BugReports: http://github.com/ljodea/edatemplates/issues
+RoxygenNote: 6.1.0

@@ -1,0 +1,73 @@
+---
+title: "Some title"
+author: "Your Name"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: false
+    fig_caption: true
+---
+
+```{r, echo=TRUE, message=FALSE}
+# Load your packages
+library(tidyverse)
+
+# Load any data required
+# some_data <- read_csv("blah.csv")
+```
+
+
+## Inspect your data
+
+Spend some time looking at your data. 
+
+Does it conform to your expectations? Is it messy or clean? Does it have missing values? Have data types been imported correctly? 
+
+At the very least, provide *dimensions*. 
+
+```{r}
+dim(mtcars)
+```
+
+Perhaps look at the head of your data.
+
+```{r}
+head(iris)
+```
+
+Or look at a summary:
+
+```{r}
+summary(iris)
+```
+
+
+Better yet, provide a glimpse at your data if this is feasible (i.e. there aren't too many columns): 
+
+```{r}
+dplyr::glimpse(mtcars)
+```
+
+The _glimpse()_ function shows dimensions _and_ variable names along with data types and a few values from the columns themselves.
+
+## EDA of single variables
+
+Spend some time looking carefully at the distributions of individual variables. What do they look like?
+
+If your analysis has a modelling element, look very carefully at the distribution of the target variable. Does it conform to your expectations? 
+
+
+```{r}
+ggplot(iris, aes(Sepal.Width)) + geom_histogram()
+```
+
+
+
+## EDA of two variables
+
+Start to look at pairs of variables together. Can you see any relationships? 
+
+```{r}
+ggplot(mtcars, aes(factor(cyl), mpg)) + geom_boxplot()
+```
+
